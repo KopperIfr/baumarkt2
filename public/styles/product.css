@@ -1,0 +1,177 @@
+.popout_cont {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.562);
+    top: 0;
+    left: 0;
+}
+
+.popout_cont .warenkorb_popout {
+    width: 30rem;
+    height: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+    position: relative;
+    background: white;
+    border-radius: .4rem;
+    color: rgb(32, 100, 32);
+}
+
+.popout_cont .warenkorb_popout.true {
+    flex-direction: column;
+}
+
+.popout_cont .warenkorb_popout.true form{
+    margin-top: 2rem;
+}
+
+.popout_cont .warenkorb_popout.true form button{
+    color: white;
+    padding: .4rem 1rem;
+    background: #15721a;
+    font-size: 1.1rem;
+}
+
+.popout_cont .warenkorb_popout.false form {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+.popout_cont .warenkorb_popout form button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.popout_cont .warenkorb_popout form button i {
+    font-size: 2rem;
+    color: red;
+}
+
+.cont_product {
+    width: 100%;
+    min-height: 46rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont_product .product {
+    display: flex;
+    width: 100%;
+    height: 36rem;
+    -webkit-box-shadow: 0px 2px 22px -6px rgba(189,189,189,1);
+    -moz-box-shadow: 0px 2px 22px -6px rgba(189,189,189,1);
+    box-shadow: 0px 2px 10px -6px rgb(218, 218, 218);
+    border: .03rem solid rgb(230, 230, 230);
+}
+
+.cont_product .product .cont_img {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    border-right: .01rem solid rgb(223, 223, 223);
+    padding: 2rem;
+}
+
+.cont_product .product .cont_img img {
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.cont_product .product .info {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cont_product .product .info h1{
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 1rem;
+    border-bottom: .01rem solid rgb(223, 223, 223);
+}
+
+.cont_product .product .info .description {
+    max-width: 30rem;
+    font-size: 1.1rem;
+    color: rgb(68, 68, 68);
+    margin-top: 2rem;
+    line-height: 2rem;
+}
+
+.cont_product .product .info .fabrikat {
+    width: 100%;
+    max-width: 30rem;
+    color: rgb(68, 68, 68);
+    font-size: 1.1rem;
+    margin-top: 2rem;
+}
+
+.cont_product .product .info .preis {
+    width: 100%;
+    max-width: 30rem;
+    color: rgb(68, 68, 68);
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+.cont_product .product .info form {
+    width: 100%;
+    max-width: 30rem;
+    margin-top: 1rem;
+}
+
+.cont_product .product .info form .menge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cont_product .product .info form .menge input {
+    width: 4rem;
+    padding: .3rem;
+}
+
+.cont_product .product .info form button {
+    margin-top: 1rem;
+    padding: .8rem 1.5rem;
+    text-align: center;
+    width: fit-content;
+    background-color: rgb(39, 39, 39);
+    color: white;
+    border-radius: .3rem;
+    cursor: pointer;
+    font-size: .8rem;
+    border: none;
+}
+
+.cont_product .product .info .back {
+    width: 100%;
+    max-width: 30rem;
+    margin-top: 2rem;
+}
+
+.cont_product .product .info .back a {
+    border: .01rem solid rgb(213, 213, 213);
+    padding: .5rem 1.3rem;
+    color: rgb(89, 89, 89);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cont_product .product .info .back a i {
+    margin-right: .2rem;
+}

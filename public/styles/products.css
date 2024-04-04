@@ -1,0 +1,130 @@
+.section_products {
+    min-height: 64vh;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.cont_products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    max-width: 58.5rem;
+}
+
+.products_title {
+    margin-top: 2rem;
+    padding: 2rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.section_products .cont_products .product {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    position: relative;
+    padding-top: 2rem;
+    gap: 2rem;
+    -webkit-box-shadow: 0px 2px 22px -6px rgba(189,189,189,1);
+    -moz-box-shadow: 0px 2px 22px -6px rgba(189,189,189,1);
+    box-shadow: 0px 2px 22px -6px rgb(218, 218, 218);
+}
+
+.section_products .cont_products .product .img_cont {
+    width: 100%;
+    height: 10rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.section_products .cont_products .product .img_cont img {
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.section_products .cont_products .product .info {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+    border-top: .01rem solid rgb(191, 191, 191);
+
+}
+
+.section_products .cont_products .product .info .separator {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    -webkit-box-shadow: 0px 2px 22px -6px rgba(189,189,189,1);
+    -moz-box-shadow: 0px 2px 22px -6px rgba(189,189,189,1);
+    box-shadow: 0px 2px 10px -6px rgb(218, 218, 218);
+    border: .01rem solid rgb(230, 230, 230);
+    padding: .4rem .6rem;
+}
+
+.section_products .cont_products .product .info .separator p {
+    font-weight: lighter;
+    color: rgb(82, 82, 82);
+}
+
+.section_products .cont_products .product .info .separator .key {
+    width: 6rem;
+}
+
+.section_products .cont_products .product .info form button {
+    padding: .8rem 1rem;
+    text-align: center;
+    width: fit-content;
+    background-color: rgb(39, 39, 39);
+    color: white;
+    margin-top: .3rem;
+    border-radius: .3rem;
+    cursor: pointer;
+    font-size: .8rem;
+    border: none;
+}
+
+.section_products .cont_products .product .info form button.korb {
+    background-color: rgb(83, 117, 168);
+}
+
+.section_products .cont_products .product .info form button:hover {
+    background-color: rgb(73, 73, 73);
+}
+
+.section_products .cont_products .product .info form button.korb:hover {
+    background-color: rgb(114, 149, 203);
+}
+
+.section_products .cont_products .product .info a {
+    padding: .8rem 1rem;
+    text-align: center;
+    width: fit-content;
+    background-color: rgb(39, 39, 39);
+    color: white;
+    margin-top: .3rem;
+    border-radius: .3rem;
+    cursor: pointer;
+    font-size: .8rem;
+    border: none;
+    text-decoration: none;
+}
+
+.section_products .cont_products .product .info a:hover {
+    background-color: rgb(73, 73, 73);
+}
+
+
+
+.section_products .cont_products .product .info .bottom {
+    display: flex;
+    gap: .4rem;
+}
