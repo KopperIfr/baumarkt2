@@ -29,8 +29,6 @@ include_once MODEL_PATH . 'BestellungModel.php';
 include_once MODEL_PATH . 'UserModel.php';
 
 
-//displayArray($_SESSION);
-
 // starting database..
 Database::setInstance();
 $dbc = Database::getConnection();

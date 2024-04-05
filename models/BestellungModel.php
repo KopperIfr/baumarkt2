@@ -25,8 +25,8 @@ class BestellungModel extends Model{
 
     public function insertBestellung($bestellung) {
 
-        $sql = "INSERT INTO bestellungen(bestellung_num, versandaddresse_id, bestellung_status, bestellung_date, user_id)
-        VALUES(:bestellung_num, :versandaddresse_id, :bestellung_status, :bestellung_date, :user_id)";
+        $sql = "INSERT INTO bestellungen(bestellung_num, versandaddresse_id, bestellung_status, bestellung_date, user_id, bestellung_cc_type, bestellung_cc_last_numbs)
+        VALUES(:bestellung_num, :versandaddresse_id, :bestellung_status, :bestellung_date, :user_id, :bestellung_cc_type , :bestellung_cc_last_numbs)";
         try {
             $date = DateTime::createFromFormat('d-m-Y', $bestellung['bestellung_date']);
             $bestellung_date = $date->format('Y-m-d');
@@ -36,6 +36,8 @@ class BestellungModel extends Model{
             $stmt->bindParam(':bestellung_status', $bestellung['bestellung_status'], PDO::PARAM_STR);
             $stmt->bindParam(':bestellung_date', $bestellung_date, PDO::PARAM_STR);
             $stmt->bindParam(':user_id', $bestellung['versandAddresseData']['user_id'], PDO::PARAM_INT);
+            $stmt->bindParam(':bestellung_cc_type', $bestellung['bestellung_cc_type'], PDO::PARAM_STR);
+            $stmt->bindParam(':bestellung_cc_last_numbs', $bestellung['bestellung_cc_last_numbs'], PDO::PARAM_INT);
             $stmt->execute();
             return true; // Retorna verdadero si la inserción es exitosa
         } catch (PDOException $e) {
@@ -54,7 +56,7 @@ class BestellungModel extends Model{
                 $stmt->bindParam(':bestellung_num', $bestellung['bestellung_num'], PDO::PARAM_INT);
                 $stmt->bindParam(':product_id', $product['id'], PDO::PARAM_INT);
                 $stmt->bindParam(':product_menge', $product['menge'], PDO::PARAM_INT);
-                $stmt->bindParam(':product_total_price', $product['total_price'], PDO::PARAM_INT);
+                $stmt->bindParam(':product_total_price', $product['total_price'], PDO::PARAM_STR);
                 $stmt->execute();
             }
             return true;
@@ -90,6 +92,7 @@ class BestellungModel extends Model{
         $bestellungen = $this->getBestellungenByUserId($id);
         if($bestellungen === false) return false;
         $AllBestellungen = [];
+        $best_total_price = 0;
 
         foreach($bestellungen as $index => $bestellung) {
             $numb = $bestellung['bestellung_num'];
@@ -101,6 +104,9 @@ class BestellungModel extends Model{
                 "bestellung_date" => $bestellung['bestellung_date'],
                 "user_id" => $id,
                 "products" => [],
+                'total_price' => 0,
+                'bestellung_cc_type' => $bestellung['bestellung_cc_type'],
+                'bestellung_cc_last_numbs' => $bestellung['bestellung_cc_last_numbs']
             ];
 
             $versandAddresse = $userModel->getVersandAddresseById($bestellung['versandaddresse_id']);
@@ -120,7 +126,9 @@ class BestellungModel extends Model{
                     'katzwei_id' => $product['katzwei_id'],
                     'total_price' => $field['product_total_price']
                 ];
+                $best_total_price += floatval($field['product_total_price']);
                 $AllBestellungen[$numb]['products'][$index] = $new_product;
+                $AllBestellungen[$numb]['total_price'] += floatval($field['product_total_price']);
             }
         }
         $bestellungen = $AllBestellungen;

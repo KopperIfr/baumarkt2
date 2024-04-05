@@ -25,8 +25,8 @@ class ProductsController extends Controller {
 
     public function showAction($params) {
         include_once ROOT_PATH . 'config/fields_index_page.inc.php';
-        $product = $this->productsModel->getProductById($params[1]);
-        $katzwei = $this->productsModel->getKatzweiById($product['katzwei_id']);
+        $product = $this->productsModel->getProductById(intval($params[1]));
+        $katzwei = $this->productsModel->getKatzweiById(intval($product['katzwei_id']));
         $this->runView('product', [
             'product' => $product,
             'katzwei' => $katzwei,

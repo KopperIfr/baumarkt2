@@ -84,8 +84,8 @@
                     Bezahlt mit
                 </p>
                 <p>
-                    <?php echo $bestellung['bestellung_cc_type'] . 
-                    ' das mit den Nummer ' . $bestellung['bestellung_cc_last_numbs'] . ' endet' ?>
+                    <?php echo '<b>' . $bestellung['bestellung_cc_type'] . '</b>' . 
+                    ' das mit den Nummer ' . '<b>' . $bestellung['bestellung_cc_last_numbs'] . '</b>' .' endet' ?>
                 </p>
             </div>
             <div class=" mt-[2rem] flex flex-col gap-y-[1rem]">

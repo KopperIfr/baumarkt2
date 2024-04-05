@@ -13,7 +13,7 @@ class AddressenController extends Controller {
         $this->runView('addressen', [
             'main_address' => $main_address,
             'other_address' => $other_address,
-            'back' => $_GET['back'] ?? $_POST['back']
+            'back' => $_GET['back'] ?? $_POST['back'] ?? null
         ]);
     }
 

@@ -22,7 +22,7 @@
     <?php include_once VIEW_PATH . 'layouts/header.php' ?>
 
     <!-- // Section // -->
-    <section class="padding <?php echo $data['section'] ?>">
+    <section class="padding <?php echo $data['section'] ?? '' ?>">
 
         <!-- // Content // -->
         <?php

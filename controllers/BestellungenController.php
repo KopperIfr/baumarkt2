@@ -12,9 +12,9 @@ class BestellungenController extends Controller{
     public function defaultAction() {
         // session_unset();
         // session_destroy();
-        if($_SESSION['userId']) {
+        if(isset($_SESSION['userId'])) {
             if($this->bestellungModel->isBestellungByUserId($_SESSION['userId']) !== false) {
-                $bestellungen = $this->bestellungModel->isBestellungByUserId($_SESSION['userId']);
+                $bestellungen = $this->bestellungModel->isBestellungByUserId(intval($_SESSION['userId']));
                 $_SESSION['bestellungen'] = $bestellungen;
             }
         }
@@ -33,10 +33,10 @@ class BestellungenController extends Controller{
         $change = $_GET['change'] ?? $_POST['change'] ?? 'false';
         $changePayment = $_GET['change_payment'] ?? $_POST['change_payment'] ?? 'false';
         $userLoged = false;
-        $paymentData = $_POST['payment'];
+        $paymentData = $_POST['payment'] ?? null;
 
 
-        if($_SESSION['userId']) 
+        if(isset($_SESSION['userId'])) 
         {   
             $userLoged = true;
             $versandAddresse = $this->userModel->getMainVersandAddresseFromUser($_SESSION['userId']);
@@ -44,12 +44,11 @@ class BestellungenController extends Controller{
         } 
         
         else 
-        
         {
-            $_SESSION['versandAddresse'] = $_POST['versandAddresse'] ?? $_SESSION['versandAddresse'];
+            $_SESSION['versandAddresse'] = $_POST['versandAddresse'] ?? $_SESSION['versandAddresse'] ?? null;
         }
 
-        $_SESSION['payment'] = $_POST['payment'] ?? $_SESSION['payment'];
+        $_SESSION['payment'] = $_POST['payment'] ?? $_SESSION['payment'] ?? null;
 
         $this->runView('bestellung', [
             'versandAddresseData' => $_SESSION['versandAddresse'],

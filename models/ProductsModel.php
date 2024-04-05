@@ -56,12 +56,11 @@ class ProductsModel extends Model{
         $products = [];
         $katzwei_name = '';
         foreach ($this->products as $product) {
-            if($id === $product['katzwei_id']) array_push($products, $product);
+            if(intval($id) === $product['katzwei_id']) array_push($products, $product);
         }
         foreach($this->katzwei as $katzwei) {
-            if($katzwei['id'] === $id ) $katzwei_name = $katzwei['name'];
+            if($katzwei['id'] === intval($id) ) $katzwei_name = $katzwei['name'];
         }
-
         return ['products' => $products, 'katzwei' => $katzwei_name];
     }
 

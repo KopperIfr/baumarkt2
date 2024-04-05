@@ -55,11 +55,11 @@ class Warenkorb {
     }
 
     public function getTotalPrice() {
-        return $_SESSION['total_price'];
+        return $_SESSION['total_price'] ?? null;
     }
 
     public function getAllProducts() {
-        return $_SESSION['warenkorb'];
+        return $_SESSION['warenkorb'] ?? null;
     }
 
     public function removeProduct() {
